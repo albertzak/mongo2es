@@ -1,0 +1,11 @@
+nodes:
+  source:
+    type: mongo
+    uri: '{{M2E_SOURCE}}'
+    namespace: '{{M2E_NAMESPACE}}'
+    bulk: true
+
+  destination:
+    type: elasticsearch
+    uri: '{{M2E_DESTINATION}}'
+    namespace: '{{M2E_NAMESPACE}}'
