@@ -11,12 +11,13 @@ RUN cd $GOPATH \
   && go build -a ./cmd/...
 
 RUN mkdir /transporter
+
+COPY application.js /transporter/application.js
+COPY config.yml /transporter/config.yml
+COPY entry.sh /transporter/entry.sh
+
+RUN chmod +x /transporter/entry.sh
+
 WORKDIR /transporter
-
-COPY application.js .
-COPY config.yml .
-COPY entry.sh .
-
-RUN chmod +x entry.sh
 
 ENTRYPOINT /transporter/entry.sh
